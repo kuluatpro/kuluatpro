@@ -1,0 +1,25 @@
+from distutils.util import execute
+from sqlite3 import Cursor
+import mysql.connector
+
+
+
+if __name__ == "__main__":
+    import sys
+
+    mydb = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="MidNightSun2022",
+            database="db"
+            )
+
+    mycursor = mydb.cursor()
+
+    mycursor.execute("SELECT * FROM warnings")
+
+    myresult = mycursor.fetchall()
+
+    for x in myresult:
+        print(x)
+    
